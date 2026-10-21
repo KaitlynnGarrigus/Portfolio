@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85..100,400..800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<style>
+:root{--paper:#f1f2f0;--sheet:#fff;--ink:#16202e;--mute:#5d6877;--line:#c9ced6;--accent:#2557c4;--star:#e8a900;--danger:#b3261e}
+@media (prefers-color-scheme:dark){:root{--paper:#11161d;--sheet:#1a212b;--ink:#e8ecf1;--mute:#97a2b1;--line:#334052;--accent:#7aa2ff;--star:#f2b705;--danger:#ff8a80}}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 Archivo,system-ui,sans-serif;
+ background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.88;z-index:-1}
+header{position:sticky;top:0;z-index:5;background:var(--sheet);border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;align-items:stretch;gap:0 8px;padding:0 20px}
+.brand{font-weight:800;font-stretch:85%;font-size:20px;padding:14px 20px 14px 0;margin-right:8px;border-right:1px solid var(--line)}
+nav{display:flex;flex-wrap:wrap;flex:1}
+nav a,nav button,.btn{font:inherit;color:var(--ink);background:none;border:0;text-decoration:none;cursor:pointer}
+nav a{padding:14px 14px;border-bottom:4px solid transparent;margin-bottom:-2px;font-weight:600}
+nav a[aria-current=page]{border-bottom-color:var(--accent)}
+nav a:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.auth{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;color:var(--mute)}
+.btn{padding:8px 14px;border:1.5px solid var(--ink);font-weight:600;border-radius:2px}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.danger{color:var(--danger);border-color:var(--danger)}
+.btn:hover{background:color-mix(in srgb,var(--accent) 14%,var(--sheet))}.btn.primary:hover{background:var(--accent);color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+main{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+.hero{padding:28px 0 8px;max-width:760px}
+.hero h1{font-size:clamp(40px,7vw,76px);line-height:.98;font-stretch:85%;font-weight:800;margin:0 0 14px;letter-spacing:-.02em}
+.hero p{font-size:18px;color:var(--mute);margin:0}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 16px;flex-wrap:wrap}
+.bar h2{margin:0;font-size:28px;font-stretch:85%;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.card{background:var(--sheet);border:1.5px solid var(--ink);display:flex;flex-direction:column}
+.thumb{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 8px,var(--sheet) 8px,var(--sheet) 16px);border-bottom:1.5px solid var(--ink);display:grid;place-items:center;color:var(--mute);font-size:14px;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.body{padding:14px 16px;flex:1}
+.body h3{margin:0 0 6px;font-size:21px;line-height:1.2;font-weight:700}
+.body p{margin:0;color:var(--mute);white-space:pre-wrap}
+.tb{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--ink);font-size:13px}
+.tb div{padding:6px 12px;border-right:1px solid var(--line)}.tb div:nth-child(2n){border-right:0}
+.tb b{display:block;font-size:11px;color:var(--mute);font-weight:600}
+.tb a{color:var(--accent);font-weight:600}
+.acts{display:flex;gap:8px;padding:8px 12px;border-top:1px solid var(--line)}
+.acts .btn{padding:4px 10px;font-size:13px}
+.star{color:var(--mute)}.star.on{color:var(--star);border-color:var(--star)}
+.empty{border:1.5px dashed var(--line);padding:40px;text-align:center;color:var(--mute);background:var(--sheet)}
+.ext{display:inline-block;margin-top:18px}
+dialog{border:2px solid var(--ink);background:var(--sheet);color:var(--ink);padding:0;width:min(520px,94vw)}
+dialog::backdrop{background:rgba(10,15,25,.6)}
+form{padding:22px;display:grid;gap:14px}
+form h2{margin:0}
+label{display:grid;gap:4px;font-weight:600;font-size:14px}
+input,textarea,select{font:inherit;padding:9px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:2px;width:100%}
+.row{display:flex;gap:10px;justify-content:flex-end}
+.msg{font-size:14px;color:var(--danger);min-height:1.2em;margin:0}
+.msg.ok{color:var(--accent)}
+.sw{--accent:#2557c4}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand" id="brand"></div>
+  <nav id="nav"></nav>
+  <div class="auth" id="auth"></div>
+</header>
+<main id="main"></main>
+
+<dialog id="loginDlg"><form id="loginForm">
+  <h2>Log in</h2>
+  <label>Email<input type="email" id="email" autocomplete="username" required></label>
+  <label>Password<input type="password" id="password" autocomplete="current-password" required></label>
+  <p class="msg" id="loginMsg"></p>
+  <div class="row"><button type="button" class="btn" data-close>Cancel</button><button class="btn primary">Log in</button></div>
+</form></dialog>
+
+<dialog id="postDlg"><form id="postForm">
+  <h2>New post</h2>
+  <label>Section<select id="pCat"></select></label>
+  <label>Title<input id="pTitle" required maxlength="120"></label>
+  <label>Description<textarea id="pDesc" rows="5" placeholder="What was the goal, your role, tools, and outcome?"></textarea></label>
+  <label>Project file (SolidWorks .sldprt, .sldasm, .zip, or anything else)<input type="file" id="pModel"></label>
+  <label>PDF (drawing, report, poster)<input type="file" id="pPdf" accept="application/pdf"></label>
+  <label>Cover image<input type="file" id="pImg" accept="image/*"></label>
+  <p class="msg" id="postMsg"></p>
+  <div class="row"><button type="button" class="btn" data-close>Cancel</button><button class="btn primary" id="postGo">Publish</button></div>
+</form></dialog>
+
+<script>
+/* ===== EDIT THESE ===== */
+const CONFIG = {
+  name: "Your Name",
+  tagline: "Mechanical design, biology, and veterinary medicine.",
+  supabaseUrl: "PASTE_SUPABASE_PROJECT_URL",
+  supabaseKey: "PASTE_SUPABASE_ANON_KEY",
+  scrappeUrl: "https://YOUR-SCRAPPE-SITE-URL"
+};
+/* ====================== */
+
+const SECTIONS = [
+  { id: "solidworks", label: "SolidWorks", blurb: "Parts, assemblies, and drawings." },
+  { id: "biology",    label: "Biology",    blurb: "Lab, field, and research work." },
+  { id: "vetmed",     label: "Vet Med",    blurb: "Clinical and animal-health experience." }
+];
+const $ = s => document.querySelector(s);
+const el = (t, props = {}, ...kids) => {
+  const n = Object.assign(document.createElement(t), props);
+  kids.flat().forEach(k => n.append(k));
+  return n;
+};
+const configured = !CONFIG.supabaseUrl.startsWith("PASTE");
+const sb = configured ? supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseKey) : null;
+let user = null, posts = [];
+
+const route = () => (location.hash.slice(1) || "home");
+const pubUrl = path => path ? sb.storage.from("portfolio").getPublicUrl(path).data.publicUrl : null;
+const fmt = d => new Date(d).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+
+async function load() {
+  if (!configured) { posts = []; return; }
+  const { data, error } = await sb.from("posts").select("*").order("created_at", { ascending: false });
+  posts = error ? [] : data;
+}
+
+function renderChrome() {
+  $("#brand").textContent = CONFIG.name;
+  const nav = $("#nav"); nav.replaceChildren();
+  const r = route();
+  const link = (id, label) => nav.append(el("a", { href: "#" + id, textContent: label, ...(r === id ? { ariaCurrent: "page" } : {}) }));
+  link("home", "Home");
+  SECTIONS.forEach(s => link(s.id, s.label));
+  nav.append(el("a", { href: CONFIG.scrappeUrl, textContent: "SCRAPP-E ↗", target: "_blank", rel: "noopener" }));
+  const auth = $("#auth"); auth.replaceChildren();
+  if (user) {
+    auth.append(el("span", { textContent: "Signed in" }),
+      el("button", { className: "btn", textContent: "New post", onclick: () => openPost() }),
+      el("button", { className: "btn", textContent: "Log out", onclick: async () => { await sb.auth.signOut(); } }));
+  } else if (configured) {
+    auth.append(el("button", { className: "btn", textContent: "Log in", onclick: () => $("#loginDlg").showModal() }));
+  }
+}
+
+function card(p) {
+  const img = pubUrl(p.image_path);
+  const files = [];
+  if (p.model_path) files.push(el("a", { href: pubUrl(p.model_path), textContent: "Download file", download: "" }));
+  if (p.pdf_path) files.push(el("a", { href: pubUrl(p.pdf_path), textContent: "View PDF", target: "_blank", rel: "noopener" }));
+  const sec = SECTIONS.find(s => s.id === p.category);
+  const c = el("article", { className: "card" },
+    el("div", { className: "thumb" }, img ? el("img", { src: img, alt: "", loading: "lazy" }) : "No cover image"),
+    el("div", { className: "body" }, el("h3", { textContent: p.title }), el("p", { textContent: p.description || "" })),
+    el("div", { className: "tb" },
+      el("div", {}, el("b", { textContent: "Section" }), sec ? sec.label : p.category),
+      el("div", {}, el("b", { textContent: "Date" }), fmt(p.created_at)),
+      el("div", { style: "grid-column:1/-1;border-right:0;border-top:1px solid var(--line)" }, el("b", { textContent: "Files" }),
+        files.length ? files.flatMap((f, i) => i ? [" · ", f] : [f]) : "None attached")));
+  if (user) {
+    c.append(el("div", { className: "acts" },
+      el("button", { className: "btn star" + (p.featured ? " on" : ""), textContent: p.featured ? "★ On home page" : "☆ Show on home page", onclick: () => toggleStar(p) }),
+      el("button", { className: "btn danger", textContent: "Delete", onclick: () => del(p) })));
+  }
+  return c;
+}
+
+function renderMain() {
+  const m = $("#main"); m.replaceChildren();
+  const r = route();
+  if (!configured) {
+    m.append(el("div", { className: "empty", textContent: "Setup needed: add your Supabase URL and key at the top of index.html (see README)." }));
+  }
+  if (r === "home") {
+    m.append(el("section", { className: "hero" }, el("h1", { textContent: CONFIG.name }), el("p", { textContent: CONFIG.tagline }),
+      el("a", { className: "btn ext", href: CONFIG.scrappeUrl, target: "_blank", rel: "noopener", textContent: "Visit SCRAPP-E ↗" })));
+    m.append(el("div", { className: "bar" }, el("h2", { textContent: "Featured work" })));
+    const feat = posts.filter(p => p.featured);
+    m.append(feat.length ? el("div", { className: "grid" }, feat.map(card))
+      : el("div", { className: "empty", textContent: user ? "Nothing featured yet. Open a section and star a post to show it here." : "Featured projects will appear here." }));
+  } else {
+    const s = SECTIONS.find(x => x.id === r) || SECTIONS[0];
+    m.append(el("div", { className: "bar" }, el("div", {}, el("h2", { textContent: s.label }), el("span", { textContent: s.blurb, style: "color:var(--mute)" })),
+      user ? el("button", { className: "btn primary", textContent: "New post", onclick: () => openPost(s.id) }) : ""));
+    const list = posts.filter(p => p.category === s.id);
+    m.append(list.length ? el("div", { className: "grid" }, list.map(card))
+      : el("div", { className: "empty", textContent: user ? "No posts yet. Select New post to add your first." : "No posts yet." }));
+  }
+}
+
+async function render() { renderChrome(); renderMain(); }
+async function refresh() { await load(); render(); }
+
+async function toggleStar(p) {
+  const { error } = await sb.from("posts").update({ featured: !p.featured }).eq("id", p.id);
+  if (error) return alert(error.message);
+  p.featured = !p.featured; render();
+}
+async function del(p) {
+  if (!confirm(`Delete "${p.title}"? This also removes its files.`)) return;
+  const paths = [p.model_path, p.pdf_path, p.image_path].filter(Boolean);
+  if (paths.length) await sb.storage.from("portfolio").remove(paths);
+  const { error } = await sb.from("posts").delete().eq("id", p.id);
+  if (error) return alert(error.message);
+  refresh();
+}
+
+function openPost(cat) {
+  const sel = $("#pCat"); sel.replaceChildren(...SECTIONS.map(s => el("option", { value: s.id, textContent: s.label })));
+  sel.value = cat || (SECTIONS.find(s => s.id === route()) || SECTIONS[0]).id;
+  $("#postForm").reset(); sel.value = cat || (SECTIONS.find(s => s.id === route()) || SECTIONS[0]).id;
+  $("#postMsg").textContent = ""; $("#postDlg").showModal();
+}
+
+async function upload(file, cat) {
+  if (!file) return null;
+  const safe = file.name.replace(/[^\w.\-]+/g, "_");
+  const path = `${cat}/${crypto.randomUUID()}-${safe}`;
+  const { error } = await sb.storage.from("portfolio").upload(path, file);
+  if (error) throw error;
+  return path;
+}
+
+$("#postForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const msg = $("#postMsg"), go = $("#postGo");
+  const cat = $("#pCat").value;
+  go.disabled = true; msg.className = "msg ok"; msg.textContent = "Uploading…";
+  try {
+    const [model_path, pdf_path, image_path] = await Promise.all([
+      upload($("#pModel").files[0], cat), upload($("#pPdf").files[0], cat), upload($("#pImg").files[0], cat)]);
+    const { error } = await sb.from("posts").insert({
+      category: cat, title: $("#pTitle").value.trim(), description: $("#pDesc").value.trim(), model_path, pdf_path, image_path });
+    if (error) throw error;
+    $("#postDlg").close(); location.hash = cat; refresh();
+  } catch (err) { msg.className = "msg"; msg.textContent = "Upload failed: " + err.message + " (files over 50 MB need a higher Supabase limit)."; }
+  go.disabled = false;
+});
+
+$("#loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const { error } = await sb.auth.signInWithPassword({ email: $("#email").value, password: $("#password").value });
+  if (error) { $("#loginMsg").textContent = "Login failed: " + error.message; return; }
+  $("#password").value = ""; $("#loginMsg").textContent = ""; $("#loginDlg").close();
+});
+document.querySelectorAll("[data-close]").forEach(b => b.onclick = () => b.closest("dialog").close());
+addEventListener("hashchange", render);
+
+(async () => {
+  document.title = CONFIG.name + " | Portfolio";
+  if (configured) {
+    sb.auth.onAuthStateChange((_ev, session) => { user = session ? session.user : null; render(); });
+    const { data } = await sb.auth.getSession(); user = data.session ? data.session.user : null;
+  }
+  await refresh();
+})();
+</script>
+</body>
+</html>
