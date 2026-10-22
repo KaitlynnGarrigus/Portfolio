@@ -3,279 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio</title>
+<title>Kaitlynn Garrigus | Biology and Mechanical Engineering portfolio</title>
+<meta name="description" content="Portfolio of Kaitlynn Garrigus: biology and mechanical engineering coursework, work experience, projects, and photos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85..100,400..800&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#f1f2f0;--sheet:#fff;--ink:#16202e;--mute:#5d6877;--line:#c9ced6;--accent:#2557c4;--star:#e8a900;--danger:#b3261e}
-@media (prefers-color-scheme:dark){:root{--paper:#11161d;--sheet:#1a212b;--ink:#e8ecf1;--mute:#97a2b1;--line:#334052;--accent:#7aa2ff;--star:#f2b705;--danger:#ff8a80}}
-*{box-sizing:border-box}
-html{scroll-padding-top:70px}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 Archivo,system-ui,sans-serif;
- background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px;background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.88;z-index:-1}
-header{position:sticky;top:0;z-index:5;background:var(--sheet);border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;align-items:stretch;gap:0 8px;padding:0 20px}
-.brand{font-weight:800;font-stretch:85%;font-size:20px;padding:14px 20px 14px 0;margin-right:8px;border-right:1px solid var(--line)}
-nav{display:flex;flex-wrap:wrap;flex:1}
-nav a,nav button,.btn{font:inherit;color:var(--ink);background:none;border:0;text-decoration:none;cursor:pointer}
-nav a{padding:14px 14px;border-bottom:4px solid transparent;margin-bottom:-2px;font-weight:600}
-nav a[aria-current=page]{border-bottom-color:var(--accent)}
-nav a:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
-.auth{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;color:var(--mute)}
-.btn{padding:8px 14px;border:1.5px solid var(--ink);font-weight:600;border-radius:2px}
-.btn.primary{background:var(--ink);color:var(--paper)}
-.btn.danger{color:var(--danger);border-color:var(--danger)}
-.btn:hover{background:color-mix(in srgb,var(--accent) 14%,var(--sheet))}.btn.primary:hover{background:var(--accent);color:#fff}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-main{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
-.hero{padding:28px 0 8px;max-width:760px}
-.hero h1{font-size:clamp(40px,7vw,76px);line-height:.98;font-stretch:85%;font-weight:800;margin:0 0 14px;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--mute);margin:0}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 16px;flex-wrap:wrap}
-.bar h2{margin:0;font-size:28px;font-stretch:85%;font-weight:800}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
-.card{background:var(--sheet);border:1.5px solid var(--ink);display:flex;flex-direction:column}
-.thumb{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 8px,var(--sheet) 8px,var(--sheet) 16px);border-bottom:1.5px solid var(--ink);display:grid;place-items:center;color:var(--mute);font-size:14px;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.body{padding:14px 16px;flex:1}
-.body h3{margin:0 0 6px;font-size:21px;line-height:1.2;font-weight:700}
-.body p{margin:0;color:var(--mute);white-space:pre-wrap}
-.tb{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--ink);font-size:13px}
-.tb div{padding:6px 12px;border-right:1px solid var(--line)}.tb div:nth-child(2n){border-right:0}
-.tb b{display:block;font-size:11px;color:var(--mute);font-weight:600}
-.tb a{color:var(--accent);font-weight:600}
-.acts{display:flex;gap:8px;padding:8px 12px;border-top:1px solid var(--line)}
-.acts .btn{padding:4px 10px;font-size:13px}
-.star{color:var(--mute)}.star.on{color:var(--star);border-color:var(--star)}
-.empty{border:1.5px dashed var(--line);padding:40px;text-align:center;color:var(--mute);background:var(--sheet)}
-.ext{display:inline-block;margin-top:18px}
-dialog{border:2px solid var(--ink);background:var(--sheet);color:var(--ink);padding:0;width:min(520px,94vw)}
-dialog::backdrop{background:rgba(10,15,25,.6)}
-form{padding:22px;display:grid;gap:14px}
-form h2{margin:0}
-label{display:grid;gap:4px;font-weight:600;font-size:14px}
-input,textarea,select{font:inherit;padding:9px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:2px;width:100%}
-.row{display:flex;gap:10px;justify-content:flex-end}
-.msg{font-size:14px;color:var(--danger);min-height:1.2em;margin:0}
-.msg.ok{color:var(--accent)}
-.sw{--accent:#2557c4}
-.hint{font-size:13px;color:var(--mute);margin:0;font-weight:400}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
-<body>
-<header>
-  <div class="brand" id="brand"></div>
-  <nav id="nav"></nav>
-  <div class="auth" id="auth"></div>
-</header>
-<main id="main"></main>
+<body class="home">
+<header class="hero"><div class="w">
+  <h1 id="name"></h1>
+  <p id="tag" style="font:600 1.5rem var(--h);color:#fff"></p>
+  <p id="intro"></p>
+  <div class="links" id="links"></div>
+</div></header>
 
-<dialog id="loginDlg"><form id="loginForm">
-  <h2>Log in</h2>
-  <label>Username or email<input type="text" id="email" autocomplete="username" required></label>
-  <label>Password<input type="password" id="password" autocomplete="current-password" required></label>
-  <p class="msg" id="loginMsg"></p>
-  <div class="row"><button type="button" class="btn" data-close>Cancel</button><button class="btn primary">Log in</button></div>
-</form></dialog>
+<div class="w">
+  <div class="paths">
+    <a class="path" href="biology.html" style="--c:var(--bio);--ct:var(--biot)"><h2>Biology</h2><p id="bb"></p><b>Explore biology</b></a>
+    <a class="path" href="engineering.html" style="--c:var(--eng);--ct:var(--engt)"><h2>Mechanical Engineering</h2><p id="eb"></p><b>Explore engineering</b></a>
+  </div>
 
-<dialog id="postDlg"><form id="postForm">
-  <h2>New post</h2>
-  <label>Section<select id="pCat"></select></label>
-  <label>Title<input id="pTitle" required maxlength="120"></label>
-  <label>Description<textarea id="pDesc" rows="5" placeholder="What was the goal, your role, tools, and outcome?"></textarea></label>
-  <label>Date<input type="date" id="pDate" required></label>
-  <label>SolidWorks file (file name or link)<input id="pModel" maxlength="300" placeholder="gripper-assembly.zip or https://drive.google.com/..."></label>
-  <label>PDF drawing (file name or link)<input id="pPdf" maxlength="300" placeholder="gripper-drawing.pdf or https://..."></label>
-  <p class="hint">For a file name: first add the file to the <b>uploads</b> folder in your GitHub repo (Add file &gt; Upload files), then type its exact name here. Avoid spaces in file names. For a link, paste a Google Drive share link set to "Anyone with the link".</p>
-  <label>Cover image (optional)<input type="file" id="pImg" accept="image/*"></label>
-  <p class="msg" id="postMsg"></p>
-  <div class="row"><button type="button" class="btn" data-close>Cancel</button><button class="btn primary" id="postGo">Publish</button></div>
-</form></dialog>
+  <section class="sec" id="posts">
+    <h2>Posts</h2>
+    <p style="color:var(--muted)">Recent updates and projects.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filter posts"></div>
+    <p class="note" id="note" hidden></p>
+    <div id="feed" aria-live="polite"></div>
+  </div>
+</div>
 
 <script type="module">
-import { firebaseConfig } from "./firebase-config.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {$,el,fmt,site,list,configured,chrome,lightbox,paras} from './lib.js';
+chrome('Home');const open=lightbox();
+document.title=site.name+' | '+site.tagline+' portfolio';
+$('#name').textContent=site.name;$('#tag').textContent=site.tagline;$('#intro').textContent=site.intro;
+$('#bb').textContent=site.biology.blurb;$('#eb').textContent=site.engineering.blurb;
+[[site.resume,'Resume'],[site.linkedin,'LinkedIn'],[site.email&&'mailto:'+site.email,'Email me']].forEach(([h,t])=>{if(h){const a=el('a','btn on',t);a.href=h;if(/^https/.test(h)){a.target='_blank';a.rel='noopener'}$('#links').append(a)}});
 
-/* ===== EDIT THESE ===== */
-const CONFIG = {
-  name: "Your Name",
-  tagline: "Mechanical design, biology, and veterinary medicine.",
-  scrappeUrl: "https://YOUR-SCRAPPE-SITE-URL"
-};
-// A plain username (no @) is turned into this email when logging in; a full email is used as typed.
-const DOMAIN = "@portfolio-admin.example";
-/* ====================== */
-
-const SECTIONS = [
-  { id: "solidworks", label: "SolidWorks", blurb: "Parts, assemblies, and drawings." },
-  { id: "biology",    label: "Biology",    blurb: "Lab, field, and research work." },
-  { id: "vetmed",     label: "Vet Med",    blurb: "Clinical and animal-health experience." }
-];
-const $ = s => document.querySelector(s);
-const el = (t, props = {}, ...kids) => {
-  const n = Object.assign(document.createElement(t), props);
-  kids.flat().forEach(k => n.append(k));
-  return n;
-};
-const configured = !firebaseConfig.apiKey.startsWith("PASTE");
-let auth, db, user = null, posts = [];
-if (configured) { const app = initializeApp(firebaseConfig); auth = getAuth(app); db = getFirestore(app); }
-
-const route = () => (location.hash.slice(1) || "home");
-const fmt = d => new Date(d + "T00:00:00").toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-const isUrl = v => /^https?:\/\//i.test(v);
-const okRef = v => !v || isUrl(v) || /^[\w][\w.\-]*$/.test(v);
-const href = v => isUrl(v) ? v : "uploads/" + v;
-
-async function load() {
-  if (!configured) { posts = []; return; }
-  try {
-    const snap = await getDocs(query(collection(db, "posts"), orderBy("date", "desc")));
-    posts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  } catch (err) { console.error(err); posts = []; }
-}
-
-function renderChrome() {
-  $("#brand").textContent = CONFIG.name;
-  const nav = $("#nav"); nav.replaceChildren();
-  const r = route();
-  const link = (id, label) => nav.append(el("a", { href: "#" + id, textContent: label, ...(r === id ? { ariaCurrent: "page" } : {}) }));
-  link("home", "Home");
-  SECTIONS.forEach(s => link(s.id, s.label));
-  nav.append(el("a", { href: CONFIG.scrappeUrl, textContent: "SCRAPP-E ↗", target: "_blank", rel: "noopener" }));
-  const a = $("#auth"); a.replaceChildren();
-  if (user) {
-    a.append(el("button", { className: "btn", textContent: "New post", onclick: () => openPost() }),
-      el("button", { className: "btn", textContent: "Sign out", onclick: () => signOut(auth) }));
-  } else if (configured) {
-    a.append(el("button", { className: "btn", textContent: "Log in", onclick: () => $("#loginDlg").showModal() }));
-  }
-}
-
-function card(p) {
-  const files = [];
-  if (p.model) files.push(el("a", { href: href(p.model), textContent: "Download file", target: "_blank", rel: "noopener", ...(isUrl(p.model) ? {} : { download: "" }) }));
-  if (p.pdf) files.push(el("a", { href: href(p.pdf), textContent: "View PDF", target: "_blank", rel: "noopener" }));
-  const sec = SECTIONS.find(s => s.id === p.category);
-  const c = el("article", { className: "card" },
-    el("div", { className: "thumb" }, p.cover ? el("img", { src: p.cover, alt: "", loading: "lazy" }) : "No cover image"),
-    el("div", { className: "body" }, el("h3", { textContent: p.title }), el("p", { textContent: p.description || "" })),
-    el("div", { className: "tb" },
-      el("div", {}, el("b", { textContent: "Section" }), sec ? sec.label : p.category),
-      el("div", {}, el("b", { textContent: "Date" }), fmt(p.date)),
-      el("div", { style: "grid-column:1/-1;border-right:0;border-top:1px solid var(--line)" }, el("b", { textContent: "Files" }),
-        files.length ? files.flatMap((f, i) => i ? [" · ", f] : [f]) : "None attached")));
-  if (user) {
-    c.append(el("div", { className: "acts" },
-      el("button", { className: "btn star" + (p.featured ? " on" : ""), textContent: p.featured ? "★ On home page" : "☆ Show on home page", onclick: () => toggleStar(p) }),
-      el("button", { className: "btn danger", textContent: "Delete", onclick: () => del(p) })));
-  }
-  return c;
-}
-
-function renderMain() {
-  const m = $("#main"); m.replaceChildren();
-  const r = route();
-  if (!configured) {
-    m.append(el("div", { className: "empty", textContent: "Setup needed: paste your Firebase settings into firebase-config.js (see README)." }));
-  }
-  if (r === "home") {
-    m.append(el("section", { className: "hero" }, el("h1", { textContent: CONFIG.name }), el("p", { textContent: CONFIG.tagline }),
-      el("a", { className: "btn ext", href: CONFIG.scrappeUrl, target: "_blank", rel: "noopener", textContent: "Visit SCRAPP-E ↗" })));
-    m.append(el("div", { className: "bar" }, el("h2", { textContent: "Featured work" })));
-    const feat = posts.filter(p => p.featured);
-    m.append(feat.length ? el("div", { className: "grid" }, feat.map(card))
-      : el("div", { className: "empty", textContent: user ? "Nothing featured yet. Open a section and star a post to show it here." : "Featured projects will appear here." }));
-  } else {
-    const s = SECTIONS.find(x => x.id === r) || SECTIONS[0];
-    m.append(el("div", { className: "bar" }, el("div", {}, el("h2", { textContent: s.label }), el("span", { textContent: s.blurb, style: "color:var(--mute)" })),
-      user ? el("button", { className: "btn primary", textContent: "New post", onclick: () => openPost(s.id) }) : ""));
-    const list = posts.filter(p => p.category === s.id);
-    m.append(list.length ? el("div", { className: "grid" }, list.map(card))
-      : el("div", { className: "empty", textContent: user ? "No posts yet. Select New post to add your first." : "No posts yet." }));
-  }
-}
-
-function render() { renderChrome(); renderMain(); }
-async function refresh() { await load(); render(); }
-
-async function toggleStar(p) {
-  try { await updateDoc(doc(db, "posts", p.id), { featured: !p.featured }); }
-  catch { return alert("Could not update. Check that you are signed in."); }
-  p.featured = !p.featured; render();
-}
-async function del(p) {
-  if (!confirm(`Delete "${p.title}"? This cannot be undone. (Files in your GitHub uploads folder are not deleted.)`)) return;
-  try { await deleteDoc(doc(db, "posts", p.id)); }
-  catch { return alert("Could not delete. Check that you are signed in."); }
-  refresh();
-}
-
-function openPost(cat) {
-  const def = cat || (SECTIONS.find(s => s.id === route()) || SECTIONS[0]).id;
-  $("#pCat").replaceChildren(...SECTIONS.map(s => el("option", { value: s.id, textContent: s.label })));
-  $("#postForm").reset(); $("#pCat").value = def; $("#pDate").valueAsDate = new Date();
-  $("#postMsg").textContent = ""; $("#postDlg").showModal();
-}
-
-// Cover image: shrunk in the browser so it fits in the database (same method as SCRAPP-E)
-async function enc(file, max, q) {
-  const b = await createImageBitmap(file), r = Math.min(1, max / Math.max(b.width, b.height)), c = document.createElement("canvas");
-  c.width = Math.round(b.width * r); c.height = Math.round(b.height * r);
-  c.getContext("2d").drawImage(b, 0, 0, c.width, c.height);
-  return c.toDataURL("image/jpeg", q);
-}
-async function encodeCover(file) {
-  for (const [m, q] of [[1000, .75], [800, .65], [640, .55]]) {
-    const s = await enc(file, m, q);
-    if (s.length < 800000) return s;
-  }
-  throw new Error("size");
-}
-
-$("#postForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const msg = $("#postMsg"), go = $("#postGo");
-  const model = $("#pModel").value.trim(), pdf = $("#pPdf").value.trim();
-  if (!okRef(model) || !okRef(pdf)) { msg.className = "msg"; msg.textContent = "Use a link starting with https:// or a file name with no spaces, like gripper.pdf."; return; }
-  go.disabled = true; msg.className = "msg ok"; msg.textContent = "Publishing…";
-  try {
-    const f = $("#pImg").files[0];
-    const cover = f ? await encodeCover(f) : "";
-    const category = $("#pCat").value;
-    await addDoc(collection(db, "posts"), { category, title: $("#pTitle").value.trim(), description: $("#pDesc").value.trim(),
-      date: $("#pDate").value, model, pdf, cover, featured: false, created: serverTimestamp() });
-    $("#postDlg").close(); location.hash = category; refresh();
-  } catch (err) {
-    msg.className = "msg";
-    msg.textContent = err.message === "size" ? "That cover image is too large. Try a smaller one."
-      : "Could not publish. Check your connection and that you are signed in. Use JPG or PNG for the cover image (HEIC isn't supported).";
-  }
-  go.disabled = false;
-});
-
-$("#loginForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  try {
-    const id = $("#email").value.trim().toLowerCase();
-    await signInWithEmailAndPassword(auth, id.includes("@") ? id : id + DOMAIN, $("#password").value);
-  } catch { $("#loginMsg").textContent = "Wrong username or password."; return; }
-  $("#password").value = ""; $("#loginMsg").textContent = ""; $("#loginDlg").close();
-});
-document.querySelectorAll("[data-close]").forEach(b => b.onclick = () => b.closest("dialog").close());
-addEventListener("hashchange", render);
-
-(async () => {
-  document.title = CONFIG.name + " | Portfolio";
-  if (configured) {
-    await new Promise(res => { let first = true;
-      onAuthStateChanged(auth, u => { user = u; if (first) { first = false; res(); } else render(); }); });
-  }
-  await refresh();
-})();
+let posts=[],f='';
+const label={biology:'Biology',engineering:'Mechanical Engineering'};
+if(!configured){$('#note').textContent='Posts will appear here once the database is connected.';$('#note').hidden=false}
+else{try{posts=await list('posts','date','desc')}catch(e){$('#note').textContent='Posts could not be loaded right now.';$('#note').hidden=false}}
+function render(){
+  const feed=$('#feed');feed.innerHTML='';const l=posts.filter(p=>!f||p.track===f);
+  if(!l.length)feed.append(el('p','empty','No posts yet.'));
+  l.forEach(p=>{const c=el('article','post'),h=el('div');h.append(el('span','badge '+p.track,label[p.track]||''),el('span','d',fmt(p.date)));c.append(h,el('h3','',p.title));paras(p.body,c);
+    if(p.photos?.length){const g=el('div','ph');p.photos.forEach(ph=>{const b=el('button'),i=el('img');b.type='button';i.src=ph.s;i.alt=ph.c||p.title;i.loading='lazy';b.append(i);if(ph.c)b.append(el('span','',ph.c));
+      b.onclick=()=>open(ph.s,i.alt,ph.c||p.title,{text:'See more in the '+(label[p.track]||'')+' gallery',href:p.track+'.html#gallery'});g.append(b)});c.append(g)}
+    feed.append(c)})}
+const ch=$('#chips');[['','All'],['biology','Biology'],['engineering','Engineering']].forEach(([k,t])=>{const b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',k===f);b.onclick=()=>{f=k;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()};ch.append(b)});
+render();
 </script>
 </body>
 </html>
