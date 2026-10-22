@@ -6,5 +6,5 @@ export const firebaseConfig={
   projectId: "portfolio-81154",
   storageBucket: "portfolio-81154.firebasestorage.app",
   messagingSenderId: "209712436448",
-  appId: "1:209712436448:web:8f86a1503f2563520eec85"
+  appId: "1:209712436448:web:fc7acf222b53ebfa0eec85"
 };
