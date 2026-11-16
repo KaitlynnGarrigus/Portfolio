@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaitlynn Garrigus | Biology and Mechanical Engineering portfolio</title>
+<meta name="description" content="Portfolio of Kaitlynn Garrigus: biology and mechanical engineering coursework, work experience, projects, fostered animals, and photos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Caveat:wght@600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="hero" id="hero"><div class="w">
+  <h1 id="name"></h1>
+  <p class="strip y anno" id="tag"></p>
+  <p class="paper" id="intro"></p>
+  <div class="links" id="links"></div>
+</div></header>
+
+<div class="w">
+  <div class="paths">
+    <a class="paper y path taped" href="biology.html" id="pb"><h2>Biology</h2><p id="bb"></p><b>Explore biology</b></a>
+    <a class="paper graph path taped" href="engineering.html" id="pe"><h2>Mechanical Engineering</h2><p id="eb"></p><b>Explore engineering</b></a>
+  </div>
+
+  <section class="sec" id="featured" hidden>
+    <h2 class="strip">Favorite photos</h2>
+    <div class="polas" id="polas"></div>
+  </section>
+
+  <section class="sec" id="posts">
+    <h2 class="strip y">Posts</h2>
+    <div class="chips" id="chips" role="group" aria-label="Filter posts"></div>
+    <p class="note" id="note" hidden></p>
+    <div id="feed" aria-live="polite"></div>
+  </section>
+</div>
+
+<script type="module">
+import {$,el,fmt,site,list,fire,configured,chrome,lightbox,paras,decorate} from './lib.js';
+chrome('Home');const open=lightbox();
+document.title=site.name+' | '+site.tagline+' portfolio';
+$('#name').textContent=site.name;$('#tag').textContent=site.tagline;$('#intro').textContent=site.intro;
+$('#bb').textContent=site.biology.blurb;$('#eb').textContent=site.engineering.blurb;
+[[site.resume,'Resume','w'],[site.linkedin,'LinkedIn','y'],[site.email&&'mailto:'+site.email,'Email me','y']].forEach(([h,t,c])=>{if(h){const a=el('a','btn '+c,t);a.href=h;if(/^https/.test(h)){a.target='_blank';a.rel='noopener'}$('#links').append(a)}});
+decorate($('#hero'),[['leaf',{top:'7%',left:'3%'},96,-16],['dna',{top:'46%',left:'1.5%'},78,10,1],['gear',{top:'5%',right:'3%'},108,14],['cube',{top:'50%',right:'2%'},84,-10,1],['paw',{bottom:'5%',left:'14%'},72,16,1],['pencil',{bottom:'4%',right:'14%'},84,-8,1],['flask',{top:'3%',left:'20%'},64,12,1],['nut',{top:'6%',right:'22%'},62,-14,1]]);
+decorate($('#pb'),[['paw',{top:'-18px',right:'14px'},64,14],['leaf',{bottom:'-14px',right:'26px'},60,-18]]);
+decorate($('#pe'),[['gear',{top:'-20px',right:'10px'},72,12],['ruler',{bottom:'-10px',right:'20px'},76,-8]]);
+
+let posts=[],f='';const label={biology:'Biology',engineering:'Mechanical Engineering'};
+if(!configured){$('#note').textContent='Posts will appear here once the database is connected.';$('#note').hidden=false}
+else{try{posts=await list('posts','date','desc')}catch(e){$('#note').textContent='Posts could not be loaded right now.';$('#note').hidden=false}}
+function render(){
+  const feed=$('#feed');feed.innerHTML='';const l=posts.filter(p=>!f||p.track===f);
+  if(!l.length&&configured)feed.append(el('p','note','No posts yet.'));
+  l.forEach(p=>{const c=el('article','paper lined post'),h=el('div');h.append(el('span','badge '+p.track,label[p.track]||''),el('span','d',fmt(p.date)));c.append(h,el('h3','',p.title));paras(p.body,c);
+    if(p.photos?.length){const g=el('div','ph'),items=p.photos.map(ph=>({src:ph.s,alt:ph.c||p.title,cap:ph.c||p.title,link:{text:'See more in the '+(label[p.track]||'')+' gallery',href:p.track+'.html#gallery'}}));
+      p.photos.forEach((ph,k)=>{const b=el('button'),i=el('img');b.type='button';i.src=ph.s;i.alt=items[k].alt;i.loading='lazy';b.append(i);if(ph.c)b.append(el('span','',ph.c));b.onclick=()=>open(items,k);g.append(b)});c.append(g)}
+    feed.append(c)})}
+const ch=$('#chips');[['','All'],['biology','Biology'],['engineering','Engineering']].forEach(([k,t])=>{const b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',k===f);b.onclick=()=>{f=k;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()};ch.append(b)});
+render();
+
+// Favorite photos: gallery photos that were starred
+if(configured){try{const fb=await fire(),s=await fb.F.getDocs(fb.F.query(fb.F.collection(fb.db,'posts'),fb.F.where('hasStar','==',true)));
+  const t=[];s.docs.forEach(d=>{const p=d.data();(p.photos||[]).forEach(ph=>{if(ph.star)t.push({p,ph})})});t.sort((a,b)=>b.p.date.localeCompare(a.p.date));
+  if(t.length){const items=t.slice(0,12).map(({p,ph})=>({src:ph.s,alt:ph.c||p.title,cap:ph.c||p.title,link:{text:'See the '+(label[p.track]||'')+' gallery',href:p.track+'.html#gallery'}}));
+    items.forEach((it,k)=>{const b=el('button','pol');b.type='button';const i=el('img');i.src=it.src;i.alt=it.alt;i.loading='lazy';b.append(i,el('span','',it.alt));b.onclick=()=>open(items,k);$('#polas').append(b)});$('#featured').hidden=false}}catch(e){}}
+</script>
+</body>
+</html>
